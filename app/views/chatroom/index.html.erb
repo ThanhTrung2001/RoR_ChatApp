@@ -1,0 +1,46 @@
+<h2 class="ui center aligned icon header">
+    <i class="circular comments icon blue"></i>
+    ChatRoom
+  </h2>
+
+<div class="ui two column grid">
+    <div class="twelve wide column">
+        <div class="ui fluid raised card chatbox">
+                <div class="content" id="messages">
+                    <div class="header">Chat World</div>
+                    <div class="meta">...recently...</div>
+                    <div class="ui inverted divider"></div>
+                    <div class="ui feed" id="message-container">
+                            <%= render 'messages'%>
+                    </div>
+                </div>
+                <div class="extra content">
+                    <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f| %>
+                        <div class="field">
+                            <div class="ui fluid icon input">
+                                <%= f.text_field :body %>
+                                <%= f.button '<i class="bordered inverted blue send icon"></i>'.html_safe %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>           
+        </div>
+    </div>
+    <div class="four wide column">
+        <div class="ui fluid raised card chatbox">
+                <div class="content">
+                    <div class="ui inverted vertical menu">
+                        <a class="active item">
+                        Online User
+                        </a>
+                        <a class="item">
+                        Messages
+                        </a>
+                        <a class="item">
+                        Friends
+                        </a>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
